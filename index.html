@@ -1,0 +1,269 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Amazon Clone</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css">
+    <link rel="stylesheet" href="style.css">    
+</head>
+<body>
+    <header>
+        <div class="navbar">
+            <div class="nav-logo border-hover">
+                <div class="logo"></div>
+            </div>
+            <div class="nav-address border-hover">
+                <div class="address-icon">
+                    <i class="fa-solid fa-location-dot"></i>
+                    <div class="address-text">
+                        <p class="add-first">Deliver to</p>
+                        <p class="add-second">India</p>
+                    </div>
+                </div>
+            </div>
+            <div class="nav-language border-hover">
+                <div class="language-icon">
+                    <img src="flag.jpg" alt="Flag" class="flag-icon">
+                    <span>EN</span>
+                    <i class="fa-solid fa-caret-down"></i>
+                </div>
+            </div>
+
+            <div class="nav-search">
+                <select class="search-select">
+                    <option>All</option>
+                    <option>Electronics</option>
+                    <option>Books</option>
+                    <option>Fashion</option>
+                </select>
+                <input type="text" class="search-input" placeholder="Search Amazon">
+                <div class="search-icon">
+                    <i class="fa-solid fa-magnifying-glass"></i>
+                </div>
+            </div>
+
+            <div class="nav-signin border-hover">
+                <a href="login.html" style="text-decoration: none; color: white;">
+                    <p><span>Hello, Sign in</span></p>
+                    <p class="nav-second">Account & Lists</p>
+                </a>
+            </div>
+
+            <div class="nav-return border-hover">
+                <p><span>Returns</span></p>
+                <p class="nav-second">& Orders</p>
+            </div>
+
+            <div class="nav-cart border-hover">
+                <i class="fa-solid fa-cart-shopping"></i>
+                <p>Cart</p>
+            </div>
+        </div>
+        <div class="nav-bottom">
+            <div class="nav-bottom-left border-hover">
+                <i class="fa-solid fa-bars"></i>
+                <span>All</span>
+            </div>
+            <div class="nav-bottom-links">
+                <a href="#" class="border-hover">Best Sellers</a>
+                <a href="#" class="border-hover">Mobiles</a>
+                <a href="#" class="border-hover">Fashion</a>
+                <a href="#" class="border-hover">Electronics</a>
+                <a href="#" class="border-hover">Customer Service</a>
+                <a href="#" class="border-hover">Today's Deals</a>
+                <a href="#" class="border-hover">Prime</a>
+                <a href="#" class="border-hover">Amazon Pay</a>
+                <a href="#" class="border-hover">New Releases</a>
+            </div>
+            <div class="nav-bottom-right border-hover">
+                <img data-src="Shop Prime Day.jpg" alt="Shop Prime Day">
+            </div>
+        </div>
+    </header>
+    <main>
+        <div class="hero-section">
+            <div class="hero-message animate-slide-in">
+                <p class="welcome-text">Welcome to Amazon.com</p>
+                <div class="promo-content">
+                    <p>Discover millions of deals & exclusive offers</p>
+                    <div class="promo-badges">
+                        <span class="promo-badge">Free Shipping</span>
+                        <span class="promo-badge">Prime Deals</span>
+                        <span class="promo-badge">24/7 Support</span>
+                    </div>
+                </div>
+            </div>
+            <div class="animated-waves"></div>
+        </div>
+
+        <div class="shop-section">
+            <div class="shop-card animate-fade-in">
+                <div class="card-badge">Featured</div>
+                <h2>Gaming accessories</h2>
+                <div class="card-image" style="background-image: url('Gaming\ accessories.jpg');"></div>
+                <a href="#" class="animated-link">See more</a>
+            </div>
+
+            <div class="shop-card animate-fade-in" data-delay="0.2s">
+                <h2>Electronics & Devices</h2>
+                <div class="card-image" style="background-image: url('Electronics\ &\ Devices.avif');"></div>
+                <a href="#">Shop now</a>
+            </div>
+
+            <div class="shop-card animate-fade-in" data-delay="0.4s">
+                <h2>Beauty picks</h2>
+                <div class="card-image" style="background-image: url('Beauty\ picks.jpg');"></div>
+                <a href="#">Shop now</a>
+            </div>
+
+            <div class="shop-card animate-fade-in" data-delay="0.6s">
+                <h2>Home & Kitchen</h2>
+                <div class="card-image" style="background-image: url('Home\ &\ Kitchen.jpg');"></div>
+                <a href="#">See more</a>
+            </div>
+        </div>
+
+        <div class="deals-section">
+            <h2>Today's Deals</h2>
+            <div class="deals-container">
+                <div class="deal-card">
+                    <img data-src="Today's Deals.png" alt="Deal 1">
+                    <div class="deal-info">
+                        <span class="discount">Up to 40% off</span>
+                        <span class="deal-text">Deal of the Day</span>
+                        <p>Top Deals on Electronics</p>
+                    </div>
+                </div>
+
+                <div class="deal-card">
+                    <img data-src="Fashion Deal.jpg" alt="Fashion Deal">
+                    <div class="deal-info">
+                        <span class="discount">Up to 50% off</span>
+                        <span class="deal-text">Lightning Deal</span>
+                        <p>Fashion & Accessories</p>
+                    </div>
+                </div>
+
+                <div class="deal-card">
+                    <img data-src="Home Deal.jpg" alt="Home Deal">
+                    <div class="deal-info">
+                        <span class="discount">Save 30%</span>
+                        <span class="deal-text">Deal of the Day</span>
+                        <p>Home & Kitchen Essentials</p>
+                    </div>
+                </div>
+
+                <div class="deal-card">
+                    <img data-src="Gadget Deal.jpg" alt="Gadget Deal">
+                    <div class="deal-info">
+                        <span class="discount">Up to 35% off</span>
+                        <span class="deal-text">Limited Time</span>
+                        <p>Smart Gadgets & Accessories</p>
+                    </div>
+                </div>
+
+                <div class="deal-card">
+                    <img data-src="Beauty Deal.avif" alt="Beauty Deal">
+                    <div class="deal-info">
+                        <span class="discount">Min 25% off</span>
+                        <span class="deal-text">Deal of the Day</span>
+                        <p>Beauty & Personal Care</p>
+                    </div>
+                </div>
+
+                <div class="deal-card">
+                    <img data-src="Book Deal.jpg" alt="Books Deal">
+                    <div class="deal-info">
+                        <span class="discount">Starting ₹499</span>
+                        <span class="deal-text">Great Savings</span>
+                        <p>Sports & Fitness Equipment</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+    <footer>
+        <div class="footer-top">
+            <div class="footer-title">
+                <p>Back to top</p>
+            </div>
+        </div>
+        
+        <div class="footer-middle">
+            <div class="footer-links">
+                <div class="footer-column">
+                    <h4>Get to Know Us</h4>
+                    <ul>
+                        <li><a href="#">About Us</a></li>
+                        <li><a href="#">Careers</a></li>
+                        <li><a href="#">Press Releases</a></li>
+                        <li><a href="#">Amazon Science</a></li>
+                    </ul>
+                </div>
+
+                <div class="footer-column">
+                    <h4>Connect with Us</h4>
+                    <ul>
+                        <li><a href="#">Facebook</a></li>
+                        <li><a href="#">Twitter</a></li>
+                        <li><a href="#">Instagram</a></li>
+                    </ul>
+                </div>
+
+                <div class="footer-column">
+                    <h4>Make Money with Us</h4>
+                    <ul>
+                        <li><a href="#">Sell on Amazon</a></li>
+                        <li><a href="#">Sell under Amazon Accelerator</a></li>
+                        <li><a href="#">Protect and Build Your Brand</a></li>
+                        <li><a href="#">Amazon Global Selling</a></li>
+                        <li><a href="#">Become an Affiliate</a></li>
+                        <li><a href="#">Fulfilment by Amazon</a></li>
+                    </ul>
+                </div>
+
+                <div class="footer-column">
+                    <h4>Let Us Help You</h4>
+                    <ul>
+                        <li><a href="#">COVID-19 and Amazon</a></li>
+                        <li><a href="#">Your Account</a></li>
+                        <li><a href="#">Returns Centre</a></li>
+                        <li><a href="#">100% Purchase Protection</a></li>
+                        <li><a href="#">Amazon App Download</a></li>
+                        <li><a href="#">Help</a></li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="footer-divider"></div>
+
+            <div class="footer-bottom">
+                <div class="footer-logo">
+                    <div class="logo"></div>
+                </div>
+                <div class="footer-buttons">
+                    <button class="language-btn" style="background-image: url('flag.jpg');"><i class="fa-solid fa-earth-americas"></i> English</button>
+                    <button class="country-btn" style="background-image: url('flag.jpg');">India</button>
+                </div>
+            </div>
+        </div>
+
+        <div class="footer-bottom-links">
+            <div class="bottom-links-content">
+                <div class="links-column">
+                    <a href="#">Conditions of Use & Sale</a>
+                    <a href="#">Privacy Notice</a>
+                    <a href="#">Interest-Based Ads</a>
+                </div>
+                <div class="copyright">
+                    <p>© 1996-2024, Amazon.com, Inc. or its affiliates</p>
+                    <p class="creator-signature">Created with ❤️ by Anup</p>
+                </div>
+            </div>
+        </div>
+    </footer>
+    <script src="script.js"></script>
+</body>
+</html>

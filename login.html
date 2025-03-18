@@ -1,0 +1,441 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Amazon Sign In - Modern</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        :root {
+            --primary-color: #232f3e;
+            --secondary-color: #ff9900;
+            --cage-color: rgba(255, 255, 255, 0.1);
+            --text-color: #ffffff;
+            --error-color: #ff4444;
+            --success-color: #00C851;
+        }
+
+        body {
+            min-height: 100vh;
+            background: linear-gradient(45deg, #232f3e, #131921);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        /* Grid Background Effect */
+        body::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: 
+                linear-gradient(var(--cage-color) 2px, transparent 2px),
+                linear-gradient(90deg, var(--cage-color) 2px, transparent 2px);
+            background-size: 30px 30px;
+            animation: gridMove 20s linear infinite;
+            z-index: 0;
+        }
+
+        @keyframes gridMove {
+            0% { transform: translateY(0); }
+            100% { transform: translateY(30px); }
+        }
+
+        .logo-container {
+            margin: 20px 0;
+            position: relative;
+            z-index: 1;
+        }
+
+        .logo {
+            width: 120px;
+            height: 36px;
+            background-image: url('amazonl\\ ogo.jpg');
+            background-size: cover;
+            filter: brightness(2);
+            transition: all 0.3s ease;
+        }
+
+        .logo:hover {
+            transform: scale(1.05);
+            filter: brightness(2.5);
+        }
+
+        .login-container {
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            border-radius: 20px;
+            padding: 40px;
+            width: 400px;
+            position: relative;
+            z-index: 1;
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.2);
+            overflow: hidden;
+        }
+
+        .login-container::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: radial-gradient(circle, var(--secondary-color) 0%, transparent 70%);
+            opacity: 0.1;
+            animation: rotate 20s linear infinite;
+        }
+
+        @keyframes rotate {
+            from { transform: rotate(0deg); }
+            to { transform: rotate(360deg); }
+        }
+
+        h1 {
+            color: var(--text-color);
+            font-size: 28px;
+            margin-bottom: 30px;
+            text-align: center;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+        }
+
+        .form-group {
+            position: relative;
+            margin-bottom: 30px;
+        }
+
+        label {
+            position: absolute;
+            left: 15px;
+            top: 50%;
+            transform: translateY(-50%);
+            color: var(--text-color);
+            font-size: 14px;
+            pointer-events: none;
+            transition: all 0.3s ease;
+        }
+
+        input {
+            width: 100%;
+            padding: 15px;
+            border: 2px solid var(--cage-color);
+            background: transparent;
+            border-radius: 10px;
+            color: var(--text-color);
+            font-size: 16px;
+            transition: all 0.3s ease;
+        }
+
+        input:focus {
+            border-color: var(--secondary-color);
+            box-shadow: 0 0 15px rgba(255, 153, 0, 0.3);
+        }
+
+        input:focus + label,
+        input:not(:placeholder-shown) + label {
+            top: 0;
+            left: 10px;
+            transform: translateY(-50%) scale(0.9);
+            background: linear-gradient(45deg, #232f3e, #131921);
+            padding: 0 5px;
+        }
+
+        .password-strength {
+            height: 4px;
+            margin-top: 10px;
+            border-radius: 2px;
+            transition: all 0.3s ease;
+            background: var(--cage-color);
+        }
+
+        .strength-weak { background: var(--error-color); width: 33%; }
+        .strength-medium { background: var(--secondary-color); width: 66%; }
+        .strength-strong { background: var(--success-color); width: 100%; }
+
+        .sign-in-btn {
+            width: 100%;
+            padding: 15px;
+            background: var(--secondary-color);
+            border: none;
+            border-radius: 10px;
+            color: var(--primary-color);
+            font-size: 16px;
+            font-weight: bold;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .sign-in-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(255, 153, 0, 0.4);
+        }
+
+        .divider {
+            margin: 30px 0;
+            text-align: center;
+            color: var(--text-color);
+            position: relative;
+        }
+
+        .divider::before,
+        .divider::after {
+            content: '';
+            position: absolute;
+            top: 50%;
+            width: 45%;
+            height: 1px;
+            background: var(--cage-color);
+        }
+
+        .divider::before { left: 0; }
+        .divider::after { right: 0; }
+
+        .create-account-btn {
+            width: 100%;
+            padding: 15px;
+            background: transparent;
+            border: 2px solid var(--secondary-color);
+            border-radius: 10px;
+            color: var(--text-color);
+            font-size: 16px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .create-account-btn:hover {
+            background: var(--secondary-color);
+            color: var(--primary-color);
+        }
+
+        .help-section {
+            margin-top: 20px;
+            text-align: center;
+        }
+
+        .help-section a {
+            color: var(--text-color);
+            text-decoration: none;
+            font-size: 14px;
+            transition: all 0.3s ease;
+        }
+
+        .help-section a:hover {
+            color: var(--secondary-color);
+        }
+
+        .error-message {
+            color: var(--error-color);
+            font-size: 12px;
+            margin-top: 5px;
+            display: none;
+            animation: fadeIn 0.3s ease;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(-10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        footer {
+            margin-top: auto;
+            padding: 20px;
+            text-align: center;
+            color: var(--text-color);
+            position: relative;
+            z-index: 1;
+        }
+
+        .footer-links a {
+            color: var(--text-color);
+            text-decoration: none;
+            margin: 0 10px;
+            font-size: 12px;
+            transition: all 0.3s ease;
+        }
+
+        .footer-links a:hover {
+            color: var(--secondary-color);
+        }
+
+        /* Floating particles effect */
+        .particles {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            top: 0;
+            left: 0;
+            pointer-events: none;
+            z-index: 0;
+        }
+
+        .particle {
+            position: absolute;
+            width: 4px;
+            height: 4px;
+            background: var(--secondary-color);
+            border-radius: 50%;
+            animation: float 15s infinite linear;
+            opacity: 0.3;
+        }
+
+        @keyframes float {
+            0% { transform: translateY(0) rotate(0deg); opacity: 0; }
+            50% { opacity: 0.5; }
+            100% { transform: translateY(-100vh) rotate(360deg); opacity: 0; }
+        }
+
+        /* Responsive Design */
+        @media screen and (max-width: 480px) {
+            .login-container {
+                width: 90%;
+                padding: 20px;
+                margin: 10px;
+            }
+
+            h1 {
+                font-size: 24px;
+            }
+
+            input, .sign-in-btn, .create-account-btn {
+                padding: 12px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Floating particles -->
+    <div class="particles" id="particles"></div>
+
+    <div class="logo-container">
+        <a href="index.html">
+            <div class="logo"></div>
+        </a>
+    </div>
+
+    <div class="login-container">
+        <h1>Sign in</h1>
+        <form id="loginForm">
+            <div class="form-group">
+                <input type="email" id="email" name="email" required placeholder=" ">
+                <label for="email">Email or mobile phone number</label>
+                <div class="error-message" id="emailError">Please enter a valid email address</div>
+            </div>
+
+            <div class="form-group">
+                <input type="password" id="password" name="password" required placeholder=" ">
+                <label for="password">Password</label>
+                <div class="password-strength" id="passwordStrength"></div>
+                <div class="error-message" id="passwordError">Password must be at least 6 characters</div>
+            </div>
+
+            <button type="submit" class="sign-in-btn">Sign in</button>
+
+            <div class="help-section">
+                <a href="#">Forgot your password?</a>
+            </div>
+        </form>
+
+        <div class="divider">New to Amazon?</div>
+
+        <button class="create-account-btn" onclick="window.location.href='register.html'">Create your Amazon account</button>
+    </div>
+
+    <footer>
+        <div class="footer-links">
+            <a href="#">Conditions of Use</a>
+            <a href="#">Privacy Notice</a>
+            <a href="#">Help</a>
+        </div>
+        <div class="copyright">© 1996-2024, Amazon.com, Inc. or its affiliates</div>
+    </footer>
+
+    <script>
+        // Create floating particles
+        function createParticles() {
+            const particles = document.getElementById('particles');
+            const particleCount = 50;
+
+            for (let i = 0; i < particleCount; i++) {
+                const particle = document.createElement('div');
+                particle.className = 'particle';
+                particle.style.left = Math.random() * 100 + '%';
+                particle.style.animationDelay = Math.random() * 15 + 's';
+                particles.appendChild(particle);
+            }
+        }
+
+        document.addEventListener('DOMContentLoaded', () => {
+            createParticles();
+
+            const loginForm = document.getElementById('loginForm');
+            const emailInput = document.getElementById('email');
+            const passwordInput = document.getElementById('password');
+            const emailError = document.getElementById('emailError');
+            const passwordError = document.getElementById('passwordError');
+            const passwordStrength = document.getElementById('passwordStrength');
+
+            // Email validation
+            emailInput.addEventListener('input', () => {
+                const isValid = emailInput.checkValidity();
+                emailError.style.display = isValid ? 'none' : 'block';
+            });
+
+            // Password strength checker
+            passwordInput.addEventListener('input', () => {
+                const password = passwordInput.value;
+                let strength = 0;
+
+                if (password.length >= 6) strength++;
+                if (password.match(/[A-Z]/)) strength++;
+                if (password.match(/[0-9]/)) strength++;
+
+                passwordStrength.className = 'password-strength';
+                if (strength === 1) passwordStrength.classList.add('strength-weak');
+                if (strength === 2) passwordStrength.classList.add('strength-medium');
+                if (strength === 3) passwordStrength.classList.add('strength-strong');
+
+                passwordError.style.display = password.length >= 6 ? 'none' : 'block';
+            });
+
+            // Form submission
+            loginForm.addEventListener('submit', (e) => {
+                e.preventDefault();
+
+                const email = emailInput.value;
+                const password = passwordInput.value;
+
+                if (!email || !password) {
+                    return;
+                }
+
+                // Add success animation
+                const btn = e.submitter;
+                btn.innerHTML = '<i class="fas fa-circle-notch fa-spin"></i>';
+                setTimeout(() => {
+                    btn.innerHTML = '<i class="fas fa-check"></i> Success!';
+                    setTimeout(() => {
+                        window.location.href = 'index.html';
+                    }, 1000);
+                }, 1500);
+            });
+        });
+    </script>
+</body>
+</html> 
